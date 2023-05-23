@@ -1,0 +1,15 @@
+# List the start up tasks. Learn more: https://www.gitpod.io/docs/configure/workspaces/tasks
+tasks:
+  - name: id rsa
+    command: |
+      mkdir -p ~/.ssh &&
+      [[ ! -z $SSH_PUBLIC_KEY  ]] &&
+      echo $SSH_PUBLIC_KEY > ~/.ssh/id_rsa.pub &&
+      chmod 644 ~/.ssh/id_rsa.pub &&
+      [[ ! -z $SSH_PRIVATE_KEY  ]] &&
+      echo $SSH_PRIVATE_KEY | base64 -d > ~/.ssh/id_rsa &&
+      chmod 600 ~/.ssh/id_rsa
+
+# List the ports to expose. Learn more: https://www.gitpod.io/docs/configure/workspaces/ports
+
+# Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
